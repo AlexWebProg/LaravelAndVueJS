@@ -26,7 +26,7 @@
                     <td><input type="text" class="form-control" v-model="person.name"></td>
                     <td><input type="number" min="0" class="form-control" v-model="age"></td>
                     <td><input type="text" class="form-control" v-model="job"></td>
-                    <td><a href="#" @click.prevent="updatePerson(person.id)" class="btn btn-success">Обновить</a></td>
+                    <td colspan="2"><a href="#" @click.prevent="updatePerson(person.id)" class="btn btn-success">Обновить</a></td>
                 </tr>
             </template>
             </tbody>
