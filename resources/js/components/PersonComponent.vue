@@ -1,5 +1,6 @@
 <template>
     <CreateComponent></CreateComponent>
+    <IndexComponent></IndexComponent>
     <!--<table class="table">
         <thead>
         <tr>
@@ -24,6 +25,7 @@
 
 <script>
     import CreateComponent from './CreateComponent.vue';
+    import IndexComponent from './IndexComponent.vue';
 
     export default {
         name: "PersonComponent",
@@ -58,7 +60,8 @@
         },
 
         components: {
-            CreateComponent
+            CreateComponent,
+            IndexComponent
         }
 
     }

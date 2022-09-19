@@ -1,16 +1,16 @@
 <template>
     <div class="w-50">
         <div class="mb-3">
-            <input type="text" class="form-control" id="name" v-model="name" placeholder="name">
+            <input type="text" class="form-control" id="name" v-model="name" placeholder="Имя">
         </div>
         <div class="mb-3">
-            <input type="number" class="form-control" id="age" v-model="age" placeholder="age">
+            <input type="number" class="form-control" id="age" v-model="age" placeholder="Возраст">
         </div>
         <div class="mb-3">
-            <input type="text" class="form-control" id="job" v-model="job" placeholder="job">
+            <input type="text" class="form-control" id="job" v-model="job" placeholder="Должность">
         </div>
         <div class="mb-3">
-            <button class="btn btn-primary" @click.prevent="addPerson">Add</button>
+            <button class="btn btn-primary" @click.prevent="addPerson">Добавить</button>
         </div>
     </div>
 </template>
