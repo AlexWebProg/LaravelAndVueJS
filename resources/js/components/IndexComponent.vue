@@ -13,21 +13,8 @@
             </thead>
             <tbody>
             <template v-for="person in people">
-                <tr :class="isEdit(person.id) ? 'd-none' : ''">
-                    <th scope="row">{{ person.id }}</th>
-                    <td>{{ person.name }}</td>
-                    <td>{{ person.age }}</td>
-                    <td>{{ person.job }}</td>
-                    <td><a href="#" @click.prevent="setEditPerson(person.id, person.name, person.age, person.job)" class="btn btn-primary">Редактировать</a></td>
-                    <td><a href="#" @click.prevent="deletePerson(person.id)" class="btn btn-danger">Удалить</a></td>
-                </tr>
-                <tr :class="isEdit(person.id) ? '' : 'd-none'">
-                    <th scope="row">{{ person.id }}</th>
-                    <td><input type="text" class="form-control" v-model="person.name"></td>
-                    <td><input type="number" min="0" class="form-control" v-model="age"></td>
-                    <td><input type="text" class="form-control" v-model="job"></td>
-                    <td colspan="2"><a href="#" @click.prevent="updatePerson(person.id)" class="btn btn-success">Обновить</a></td>
-                </tr>
+                <ShowComponent :person="person"></ShowComponent>
+                <EditComponent :person="person" :ref="`edit_${person.id}`"></EditComponent>
             </template>
             </tbody>
         </table>
@@ -35,6 +22,9 @@
 </template>
 
 <script>
+    import EditComponent from './EditComponent.vue';
+    import ShowComponent from './ShowComponent.vue';
+
     export default {
         name: "IndexComponent",
 
@@ -62,9 +52,11 @@
 
             setEditPerson(id, name, age, job) {
                 this.editPersonId = id
-                this.name = name
-                this.age = age
-                this.job = job
+                let editName = `edit_${id}`,
+                    fullEditName = this.$refs[editName][0]
+                fullEditName.name = name
+                fullEditName.age = age
+                fullEditName.job = job
             },
 
             isEdit(id) {
@@ -87,7 +79,12 @@
                     })
             }
 
-        }
+        },
+
+        components: {
+            EditComponent,
+            ShowComponent
+        },
 
     }
 </script>
